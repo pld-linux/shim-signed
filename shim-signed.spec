@@ -1,4 +1,5 @@
 Summary:	EFI loader to chain-load signed boot loaders under Secure Boot
+Summary(pl.UTF-8):	Bootloader EFI do wczytywania podpisanych bootloaderów w ramach Secure Boot
 Name:		shim-signed
 Version:	0.4
 Release:	1
@@ -8,16 +9,19 @@ Group:		Applications/System
 Source0:	%{name}-%{version}.efi
 # Source0-md5:	abf18595e08e1be3458e5e18c87dfe3c
 URL:		http://mjg59.dreamwidth.org/20303.html
+# noarch or %{x8664}? build doesn't depend on arch, but package is usable on %{x8664} only
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 EFI boot loader to chain-load signed boot loaders under Secure Boot.
 
+%description -l pl.UTF-8
+Bootloader EFI do wczytywania podpisanych bootloaderów kolejnego
+poziomu w ramach Secure Boot.
+
 %prep
 %setup -q -c -T
-
-%build
 
 %install
 rm -rf $RPM_BUILD_ROOT
